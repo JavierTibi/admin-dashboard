@@ -1,8 +1,9 @@
-// Include it and extract some methods for convenience
-const server = require('server')
-const { get } = server.router
-
-// Launch server with options and a couple of routes
-server({ port: 80 }, [
-  get('/')
-])
+// server.js
+var express = require('express')
+var path = require('path')
+var serveStatic = require('serve-static')
+app = express()
+app.use(serveStatic(__dirname + "/dist"))
+var port = process.env.PORT || 80
+app.listen(port)
+console.log('server started ' + port)
